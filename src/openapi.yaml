@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: API de Liste de Produits
+  description: Une simple API pour renvoyer une liste de produits.
+  version: 1.0.0
+
+paths:
+  /produits:
+    get:
+      summary: Récupérer la liste des produits
+      description: Renvoie une liste de produits.
+      responses:
+        '200':
+          description: Liste des produits
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    nom:
+                      type: string
+                      example: "Produit A"
+                    prix:
+                      type: number
+                      format: float
+                      example: 29.99
+                    description:
+                      type: string
+                      example: "Description du produit A"
+        '500':
+          description: Erreur interne du serveur
